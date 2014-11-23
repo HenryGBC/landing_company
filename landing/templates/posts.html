@@ -1,0 +1,63 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Empresa</title>
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/estilos.css">
+	<script src="{{ STATIC_PREFIX }}js/jquery.min.js"></script>
+	<script src="{{ STATIC_PREFIX }}js/modernizr.custom.72916.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body id="bodyPost">
+	<header>
+		<div class="nombre">
+			<h1>Nombre de la empresa</h1>
+		</div>
+		<div class="back">
+			<a href="">Regresar</a>
+		</div>
+	</header>
+	<section class="posts">
+
+			{% for post in object_list %}
+			<section class="post">
+
+			<a href="{% url 'post' post.slug %}">
+				<div class="titulo">
+					<h2>{{ post.titulo }}</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-lg-4 resumen ">
+						<p>{{ post.resumen }}</p>
+					</div>
+					<div class="col-md-4 col-lg-4">
+						
+						<figure class="avatar">
+							<img src="{{ MEDIA_PREFIX }}{{ post.imagen }}" alt="">
+						</figure>
+					</div>
+				</div>
+				<div class="fecha">
+					<p><b>{{ post.date }}</b></p>
+				</div>
+                {% if user.is_authenticated  %}
+				<div class="gestion">
+					<a href=""><span class="icon-pencil"></span></a>
+					<a href=""><span class="icon-close"></span></a>
+					<a href=""><span class="icon-plus"></span></a>
+					
+				</div>
+                {% endif %}
+			</a>
+			</section>
+			{% endfor %}
+
+	</section>
+</body>

@@ -1,0 +1,121 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Empresa</title>
+	<link rel="stylesheet" href="{{STATIC_PREFIX}}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{STATIC_PREFIX}}/css/estilos.css">
+	<script src="{{STATIC_PREFIX}}/js/jquery.min.js"></script>
+	<script src="{{STATIC_PREFIX}}/js/modernizr.custom.72916.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="navbar navbar-custom navbar-inverse navbar-static-top margin-cero" id="nav">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav nav-justified">
+          <li><a href="#section1" style="color:white;">Home</a></li>
+          <li><a href="#section2" style="color:white;">{{ campos.menu_uno }}</a></li>
+          <li><a href="#section4" style="color:white;">{{ campos.menu_dos }}</a></li>
+          <li><a href="#section5" style="color:white;">{{ campos.menu_tres }}</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+</div><!--/.navbar -->
+<section class="first">
+	<figure class="photo-ppal" style="width: 100%;  background: url('{{ MEDIA_PREFIX }}{{ campos.imagen_ppal }}') center no-repeat; background-size:cover; height:40em; margin: 0 auto">
+		
+	</figure>
+</section>
+<section class="second">
+	<div>
+		<h1>{{ campos.titulo_uno }}</h1>
+		<p>{{ campos.parrafo_uno }}</p>
+	</div>
+</section>
+<section class="third" style="background: url('{{ MEDIA_PREFIX }}{{ campos.imagen_uno }}') no-repeat center center fixed;
+	background-size: cover;">
+	  <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center"><h2>{{ campos.frase_uno }}</h2></div>
+</section>
+<section class="fourth">
+	<div class="row margin-cero">
+		<div class="col-xs-12 col-md-4">
+			<div class="descripcion">
+				<figure>
+					<img src="{{ MEDIA_PREFIX }}{{ campos.img_des_uno }}" alt="">
+				</figure>
+				<div class="des">
+					<h4><b>{{ campos.titulo_des_uno }}</b></h4>
+					<p>{{ campos.descripcion_uno }}</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div class="descripcion">
+				<figure>
+					<img src="{{ MEDIA_PREFIX }}{{ campos.img_des_dos }}" alt="">
+				</figure>
+				<div class="des">
+					<h4><b>{{ campos.titulo_des_dos }}</b></h4>
+					<p>{{ campos.descripcion_dos }}</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<div class="descripcion">
+				<figure>
+					<img src="{{ MEDIA_PREFIX }}{{ campos.img_des_tres }}" alt="">
+				</figure>
+				<div class="des">
+					<h4><b>{{ campos.titulo_des_tres }}</b></h4>
+					<p>{{ campos.descripcion_tres }}</p>
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</section>
+<section class="third fifth" style="background: url('{{ MEDIA_PREFIX }}{{ campos.imagen_dos }}') no-repeat center center fixed;
+	background-size: cover;">
+	  <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center"><h2 style="">{{ campos.frase_dos }}</h2></div>
+</section>
+<section class="sixth">
+	<h2>Contactanos</h2>
+	<div class="social">
+		<a href="{{ campos.twitter }}"><span class="icon-twitter"></span></a>
+		<a href="{{ campos.google }}"><span class="icon-googleplus"></span></a>
+		<a href="{{ campos.facebook }}"><span class="icon-facebook"></span></a>
+		<a href="{{ campos.instagram }}"><span class="icon-instagram"></span></a>
+		
+	</div>
+</section>
+<section class="contact" id="contact">
+    <div class="row mapArea">
+      <iframe style="pointer-events:none"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.6055748025792!2d-72.2176928!3d7.767419699999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1d930a2c71294cbe!2sCentro+Comercial+Plaza!5e0!3m2!1ses!2sve!4v1407227304092"  frameborder="0" style="border:0"></iframe>
+    </div>
+  </section>
+<section class="footer">
+		<p>empresa@empresa.com +58 27612345678</p>
+		<p>Hecho por <a href="https://twitter.com/HenryGBC">@HenryGBC</a></p>
+		<small>© Copyright 2058, Nombre de la empresa</small>
+	</section>
+
+<script src="{{STATIC_PREFIX}}/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
