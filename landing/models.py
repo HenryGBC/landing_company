@@ -36,7 +36,7 @@ class Post(models.Model):
     resumen = models.CharField(max_length=500)
     imagen = models.ImageField(upload_to='media/')
     contenido = models.TextField()
-    archivo = models.FileField(upload_to='media/')
+    archivo = models.FileField(upload_to='media/', null=True, blank=True)
     date = models.DateField(default=date.today())
     slug = models.SlugField(blank= True)
 
