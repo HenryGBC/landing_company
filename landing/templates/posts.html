@@ -49,9 +49,9 @@
 				</div>
                 {% if user.is_authenticated  %}
 				<div class="gestion">
-					<a href=""><span class="icon-pencil"></span></a>
-					<a href=""><span class="icon-close"></span></a>
-					<a href=""><span class="icon-plus"></span></a>
+					<a href="{% url 'editar' post.pk %}" style="color: #000000;"><span class="icon-pencil"></span></a>
+					<a href="{% url 'delete' post.pk %}" style="color: red; margin-left: 1em;"><span class="icon-close"></span></a>
+
 					
 				</div>
                 {% endif %}

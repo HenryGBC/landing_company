@@ -1,0 +1,109 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Empresa</title>
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/estilos.css">
+	<script src="{{ STATIC_PREFIX }}js/jquery.min.js"></script>
+	<script src="{{ STATIC_PREFIX }}js/modernizr.custom.72916.js"></script>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+</head>
+<body id="bodyPost">
+	<header>
+		<div class="nombre">
+			<h1>Nombre de la empresa</h1>
+		</div>
+		<div class="back">
+			<a href="">Regresar</a>
+		</div>
+	</header>
+	
+
+    {% if user.is_authenticated %}
+	<section class="menu" >
+		<div class="row margin-cero">
+			<div class="col-xs-12 col-md-3">
+			<a href="{% url 'home' %}">
+				<div class="contentMenu">
+					<div class="icon">
+						<span class="icon-home"></span>
+					</div>
+					<div class="tituloMenu">
+						<span>Inicio</span>
+					</div>
+				</div>
+
+			</a>
+			</div>
+			<div class="col-xs-12 col-md-3">
+			<a href="{% url 'crear' %}">
+				<div class="contentMenu">
+					<div class="icon">
+						<span class="icon-pen"></span>
+					</div>
+					<div class="tituloMenu">
+						<span>Nuevo Post</span>
+					</div>
+				</div>
+			</a>
+			</div>
+			<div class="col-xs-12 col-md-3">
+			<a href="{% url 'posts' %}">
+				<div class="contentMenu">
+					<div class="icon">
+						<span class="icon-stack"></span>
+					</div>
+					<div class="tituloMenu">
+						<span>Ver Todos</span>
+					</div>
+				</div>
+			</a>
+			</div>
+			<div class="col-xs-12 col-md-3">
+			<a href="{% url 'logout' %}">
+				<div class="contentMenu">
+					<div class="icon">
+						<span class="icon-enter"></span>
+					</div>
+					<div class="tituloMenu">
+						<span>Salir</span>
+					</div>
+				</div>
+			</a>
+			</div>
+		</div>
+	</section>
+    {% else %}
+        <section class="login" >
+
+        <form role="form" method="post">
+            {% csrf_token %}
+        	<h3>Inciar Sesión</h3>
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" name="username" placeholder="Usuario">
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" name="password" placeholder="Contraseña">
+              </div>
+            <input type="submit" value="Iniciar" class="btn btn-success"/>
+        </form>
+
+	</section>
+        {% if log %}
+
+
+        <div class="notLogin" style="background: red; color: #ffffff; width: 30%; margin: 0 auto;">
+                <p>username o password incorrectos</p>
+        </div>
+        {% endif %}
+
+    {% endif %}
+</body>
